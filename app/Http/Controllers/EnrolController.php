@@ -7,7 +7,11 @@ use App\Subject;
 
 class EnrolController extends Controller
 {
-   public function index()
+    public function index()
+    {
+        return view('home');
+    }
+   public function subject()
     {
     	$subjects = Subject::all();
     	return view('subjects.index')->with('subjects', $subjects);
@@ -28,6 +32,6 @@ class EnrolController extends Controller
     	$subject->name = request()->name;
     	$subject->save();
 
-        return redirect('/subjects');
+        return redirect('/home/subjects');
     }
 }
